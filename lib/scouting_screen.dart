@@ -34,19 +34,32 @@ class GridUIBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ElevatedButton(
+              SizedBox(
+                height: 100,
+                width: 200,
+              child: ElevatedButton(
                 onPressed: onSubtract,
-                child: const Icon(Icons.exposure_minus_1),
+                child: const Icon(Icons.exposure_minus_1, size: 50,),
+              ),
               ),
               const SizedBox(width: 10),
-              ElevatedButton(
+              SizedBox(
+                height: 100,
+                width: 200,
+                child: ElevatedButton(
                 onPressed: onAdd,
-                child: const Icon(Icons.exposure_plus_1),
+                child: const Icon(Icons.exposure_plus_1, size: 50,),
+              ),
               ),
             ],
           ),
           SizedBox(height: 20,),
-          ElevatedButton(onPressed: onClear, child: const Icon(Icons.clear)),
+        SizedBox(
+          height: 100,
+          width: 200,
+          child: ElevatedButton(onPressed: onClear,
+              child: const Icon(Icons.clear, size: 0,)),
+        ),
         ],
       ),
     );
@@ -74,7 +87,6 @@ class _MyStaticGridState extends State<MyStaticGrid> {
       crossAxisCount: 3,
       crossAxisSpacing: 1,
       mainAxisSpacing: 1,
-      mainAxisExtent: 298,
       padding: const EdgeInsets.all(1),
       children: <Widget>[
         GridUIBox(
@@ -83,7 +95,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: scoreL1,
           onSubtract: () {
             setState(() {
-              scoreL1 = scoreL1 - 1;
+              if(scoreL1 > 0) {
+                scoreL1 = scoreL1 - 1;
+              }
             });
           },
           onAdd: () {
@@ -103,7 +117,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: scoreL2,
           onSubtract: () {
             setState(() {
-              scoreL2 = scoreL2 - 1;
+              if(scoreL2 > 0) {
+                scoreL2 = scoreL2 - 1;
+              }
             });
           },
           onAdd: () {
@@ -123,7 +139,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: algaeProcessed,
           onSubtract: () {
             setState(() {
-              algaeProcessed = algaeProcessed - 1;
+              if(algaeProcessed > 0) {
+                algaeProcessed = algaeProcessed - 1;
+              }
             });
           },
           onAdd: () {
@@ -143,7 +161,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: scoreL3,
           onSubtract: () {
             setState(() {
-              scoreL3 = scoreL3 - 1;
+              if(scoreL3 > 0) {
+                scoreL3 = scoreL3 - 1;
+              }
             });
           },
           onAdd: () {
@@ -163,7 +183,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: scoreL4,
           onSubtract: () {
             setState(() {
-              scoreL4 = scoreL4 - 1;
+              if(scoreL4 > 0) {
+                scoreL4 = scoreL4 - 1;
+              }
             });
           },
           onAdd: () {
@@ -183,7 +205,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: netScore,
           onSubtract: () {
             setState(() {
-              netScore = netScore - 1;
+              if(netScore > 0) {
+                netScore = netScore - 1;
+              }
             });
           },
           onAdd: () {

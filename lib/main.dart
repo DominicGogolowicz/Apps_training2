@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'Container Widget (Main UI).dart';
+import 'scouting_screen.dart';
+import 'navigation_bar.dart';
 
-void main() {
-  runApp(ProviderScope(child: MaterialApp(home: Scaffold(
-    body: MyStaticGrid()
-  ))));
-}
-
+void main() => runApp(const MaterialApp(home: NavigationBarBottom()));
