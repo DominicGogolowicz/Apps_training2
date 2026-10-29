@@ -26,9 +26,9 @@ class GridUIBox extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(boxText),
+          Text(boxText, style: TextStyle(fontSize: 15)),
           const SizedBox(height: 30),
-          Text('$score', style: const TextStyle(fontWeight: FontWeight.bold)),
+          Text('$score', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
           const SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
