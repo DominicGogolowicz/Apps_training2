@@ -6,6 +6,7 @@ class GridUIBox extends StatelessWidget {
   final int score;
   final VoidCallback onSubtract;
   final VoidCallback onAdd;
+  final VoidCallback onClear;
 
   const GridUIBox({
     super.key,
@@ -14,6 +15,7 @@ class GridUIBox extends StatelessWidget {
     required this.score,
     required this.onSubtract,
     required this.onAdd,
+    required this.onClear,
   });
 
   @override
@@ -43,6 +45,8 @@ class GridUIBox extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 20,),
+          ElevatedButton(onPressed: onClear, child: const Icon(Icons.clear)),
         ],
       ),
     );
@@ -87,6 +91,11 @@ class _MyStaticGridState extends State<MyStaticGrid> {
               scoreL1 = scoreL1 + 1;
             });
           },
+          onClear: () {
+            setState(() {
+              scoreL1 = 0;
+            });
+          },
         ),
         GridUIBox(
           boxColor: Colors.lightBlueAccent,
@@ -100,6 +109,11 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           onAdd: () {
             setState(() {
               scoreL2 = scoreL2 + 1;
+            });
+          },
+          onClear: () {
+            setState(() {
+              scoreL2 = 0;
             });
           },
         ),
@@ -117,6 +131,11 @@ class _MyStaticGridState extends State<MyStaticGrid> {
               algaeProcessed = algaeProcessed + 1;
             });
           },
+          onClear: () {
+            setState(() {
+              algaeProcessed = 0;
+            });
+          },
         ),
         GridUIBox(
           boxColor: Colors.lightBlueAccent,
@@ -130,6 +149,11 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           onAdd: () {
             setState(() {
               scoreL3 = scoreL3 + 1;
+            });
+          },
+          onClear: () {
+            setState(() {
+              scoreL3 = 0;
             });
           },
         ),
@@ -147,6 +171,11 @@ class _MyStaticGridState extends State<MyStaticGrid> {
               scoreL4 = scoreL4 + 1;
             });
           },
+          onClear: () {
+            setState(() {
+              scoreL4 = 0;
+            });
+          },
         ),
         GridUIBox(
           boxColor: Colors.purpleAccent,
@@ -160,6 +189,11 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           onAdd: () {
             setState(() {
               netScore = netScore + 1;
+            });
+          },
+          onClear: () {
+            setState(() {
+              netScore = 0;
             });
           },
         ),
