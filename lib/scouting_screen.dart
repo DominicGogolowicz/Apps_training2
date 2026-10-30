@@ -22,44 +22,50 @@ class GridUIBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: boxColor,
+      padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(boxText, style: TextStyle(fontSize: 15)),
           const SizedBox(height: 30),
-          Text('$score', style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+          Text(
+            '$score',
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+          ),
           const SizedBox(height: 30),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 100,
-                width: 200,
-              child: ElevatedButton(
-                onPressed: onSubtract,
-                child: const Icon(Icons.exposure_minus_1, size: 50,),
-              ),
+              Expanded(
+                child: SizedBox(
+                  height: 80,
+                  child: ElevatedButton(
+                    onPressed: onSubtract,
+                    child: const Icon(Icons.exposure_minus_1, size: 40),
+                  ),
+                ),
               ),
               const SizedBox(width: 10),
-              SizedBox(
-                height: 100,
-                width: 200,
-                child: ElevatedButton(
-                onPressed: onAdd,
-                child: const Icon(Icons.exposure_plus_1, size: 50,),
-              ),
+              Expanded(
+                child: SizedBox(
+                  height: 80,
+                  child: ElevatedButton(
+                    onPressed: onAdd,
+                    child: const Icon(Icons.exposure_plus_1, size: 40),
+                  ),
+                ),
               ),
             ],
           ),
-          SizedBox(height: 20,),
-        SizedBox(
-          height: 100,
-          width: 200,
-          child: ElevatedButton(onPressed: onClear,
-              child: const Icon(Icons.clear, size: 0,)),
-        ),
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 60,
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: onClear,
+              child: const Icon(Icons.clear, size: 28),
+            ),
+          ),
         ],
       ),
     );
@@ -95,7 +101,7 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: scoreL1,
           onSubtract: () {
             setState(() {
-              if(scoreL1 > 0) {
+              if (scoreL1 > 0) {
                 scoreL1 = scoreL1 - 1;
               }
             });
@@ -117,7 +123,7 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: scoreL2,
           onSubtract: () {
             setState(() {
-              if(scoreL2 > 0) {
+              if (scoreL2 > 0) {
                 scoreL2 = scoreL2 - 1;
               }
             });
@@ -139,7 +145,7 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: algaeProcessed,
           onSubtract: () {
             setState(() {
-              if(algaeProcessed > 0) {
+              if (algaeProcessed > 0) {
                 algaeProcessed = algaeProcessed - 1;
               }
             });
@@ -161,7 +167,7 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: scoreL3,
           onSubtract: () {
             setState(() {
-              if(scoreL3 > 0) {
+              if (scoreL3 > 0) {
                 scoreL3 = scoreL3 - 1;
               }
             });
@@ -183,7 +189,7 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: scoreL4,
           onSubtract: () {
             setState(() {
-              if(scoreL4 > 0) {
+              if (scoreL4 > 0) {
                 scoreL4 = scoreL4 - 1;
               }
             });
@@ -205,7 +211,7 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           score: netScore,
           onSubtract: () {
             setState(() {
-              if(netScore > 0) {
+              if (netScore > 0) {
                 netScore = netScore - 1;
               }
             });
