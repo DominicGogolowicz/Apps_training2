@@ -108,7 +108,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           },
           onAdd: () {
             setState(() {
-              scoreL1 = scoreL1 + 1;
+              if(scoreL1 < 12) {
+                scoreL1 = scoreL1 + 1;
+              }
             });
           },
           onClear: () {
@@ -130,7 +132,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           },
           onAdd: () {
             setState(() {
-              scoreL2 = scoreL2 + 1;
+              if(scoreL2 < 12) {
+                scoreL2 = scoreL2 + 1;
+              }
             });
           },
           onClear: () {
@@ -174,7 +178,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           },
           onAdd: () {
             setState(() {
-              scoreL3 = scoreL3 + 1;
+              if(scoreL3 < 12) {
+                scoreL3 = scoreL3 + 1;
+              }
             });
           },
           onClear: () {
@@ -196,7 +202,9 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           },
           onAdd: () {
             setState(() {
-              scoreL4 = scoreL4 + 1;
+              if(scoreL4 < 12) {
+                scoreL4 = scoreL4 + 1;
+              }
             });
           },
           onClear: () {
