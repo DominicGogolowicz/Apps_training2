@@ -73,7 +73,9 @@ class GridUIBox extends StatelessWidget {
 }
 
 class MyStaticGrid extends StatefulWidget {
-  const MyStaticGrid({super.key});
+  final Function(int)? onScoreChanged;
+
+  const MyStaticGrid({super.key, this.onScoreChanged});
 
   @override
   State<MyStaticGrid> createState() => _MyStaticGridState();
@@ -87,6 +89,16 @@ class _MyStaticGridState extends State<MyStaticGrid> {
   int scoreL4 = 0;
   int netScore = 0;
 
+  int get totalScore =>
+      scoreL1 + scoreL2 + scoreL3 + scoreL4 + algaeProcessed + netScore;
+
+  void _updateScore(VoidCallback action) {
+    setState(() {
+      action();
+      widget.onScoreChanged?.call(totalScore);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -99,141 +111,85 @@ class _MyStaticGridState extends State<MyStaticGrid> {
           boxColor: Colors.blue,
           boxText: 'Score L1',
           score: scoreL1,
-          onSubtract: () {
-            setState(() {
-              if (scoreL1 > 0) {
-                scoreL1 = scoreL1 - 1;
-              }
-            });
-          },
-          onAdd: () {
-            setState(() {
-              if(scoreL1 < 12) {
-                scoreL1 = scoreL1 + 1;
-              }
-            });
-          },
-          onClear: () {
-            setState(() {
-              scoreL1 = 0;
-            });
-          },
+          onSubtract: () => _updateScore(() {
+            if (scoreL1 > 0) scoreL1--;
+          }),
+          onAdd: () => _updateScore(() {
+            if (scoreL1 < 12) scoreL1++;
+          }),
+          onClear: () => _updateScore(() {
+            scoreL1 = 0;
+          }),
         ),
         GridUIBox(
           boxColor: Colors.lightBlueAccent,
           boxText: 'Score L2',
           score: scoreL2,
-          onSubtract: () {
-            setState(() {
-              if (scoreL2 > 0) {
-                scoreL2 = scoreL2 - 1;
-              }
-            });
-          },
-          onAdd: () {
-            setState(() {
-              if(scoreL2 < 12) {
-                scoreL2 = scoreL2 + 1;
-              }
-            });
-          },
-          onClear: () {
-            setState(() {
-              scoreL2 = 0;
-            });
-          },
+          onSubtract: () => _updateScore(() {
+            if (scoreL2 > 0) scoreL2--;
+          }),
+          onAdd: () => _updateScore(() {
+            if (scoreL2 < 12) scoreL2++;
+          }),
+          onClear: () => _updateScore(() {
+            scoreL2 = 0;
+          }),
         ),
         GridUIBox(
           boxColor: Colors.deepPurpleAccent,
           boxText: 'Algae Processed',
           score: algaeProcessed,
-          onSubtract: () {
-            setState(() {
-              if (algaeProcessed > 0) {
-                algaeProcessed = algaeProcessed - 1;
-              }
-            });
-          },
-          onAdd: () {
-            setState(() {
-              algaeProcessed = algaeProcessed + 1;
-            });
-          },
-          onClear: () {
-            setState(() {
-              algaeProcessed = 0;
-            });
-          },
+          onSubtract: () => _updateScore(() {
+            if (algaeProcessed > 0) algaeProcessed--;
+          }),
+          onAdd: () => _updateScore(() {
+            if (algaeProcessed < 12) algaeProcessed++;
+          }),
+          onClear: () => _updateScore(() {
+            algaeProcessed = 0;
+          }),
         ),
         GridUIBox(
           boxColor: Colors.lightBlueAccent,
           boxText: 'Score L3',
           score: scoreL3,
-          onSubtract: () {
-            setState(() {
-              if (scoreL3 > 0) {
-                scoreL3 = scoreL3 - 1;
-              }
-            });
-          },
-          onAdd: () {
-            setState(() {
-              if(scoreL3 < 12) {
-                scoreL3 = scoreL3 + 1;
-              }
-            });
-          },
-          onClear: () {
-            setState(() {
-              scoreL3 = 0;
-            });
-          },
+          onSubtract: () => _updateScore(() {
+            if (scoreL3 > 0) scoreL3--;
+          }),
+          onAdd: () => _updateScore(() {
+            if (scoreL3 < 12) scoreL3++;
+          }),
+          onClear: () => _updateScore(() {
+            scoreL3 = 0;
+          }),
         ),
         GridUIBox(
           boxColor: Colors.blueAccent,
           boxText: 'Score L4',
           score: scoreL4,
-          onSubtract: () {
-            setState(() {
-              if (scoreL4 > 0) {
-                scoreL4 = scoreL4 - 1;
-              }
-            });
-          },
-          onAdd: () {
-            setState(() {
-              if(scoreL4 < 12) {
-                scoreL4 = scoreL4 + 1;
-              }
-            });
-          },
-          onClear: () {
-            setState(() {
-              scoreL4 = 0;
-            });
-          },
+          onSubtract: () => _updateScore(() {
+            if (scoreL4 > 0) scoreL4--;
+          }),
+          onAdd: () => _updateScore(() {
+            if (scoreL4 < 12) scoreL4++;
+          }),
+          onClear: () => _updateScore(() {
+            scoreL4 = 0;
+          }),
         ),
         GridUIBox(
           boxColor: Colors.purpleAccent,
           boxText: 'Net score',
           score: netScore,
-          onSubtract: () {
-            setState(() {
-              if (netScore > 0) {
-                netScore = netScore - 1;
-              }
-            });
-          },
-          onAdd: () {
-            setState(() {
-              netScore = netScore + 1;
-            });
-          },
-          onClear: () {
-            setState(() {
-              netScore = 0;
-            });
-          },
+          onSubtract: () => _updateScore(() {
+            if (netScore > 0) netScore--;
+          }),
+          onAdd: () => _updateScore(() {
+            if (netScore < 12) netScore++;
+          }),
+          onClear: () => _updateScore(() {
+            netScore = 0;
+          }),
         ),
       ],
     );
