@@ -87,6 +87,7 @@ class _MyStaticGridState extends State<MyStaticGrid> {
   int scoreL4 = 0;
   int netScore = 0;
 
+
   @override
   Widget build(BuildContext context) {
     return GridView.count(

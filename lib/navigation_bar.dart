@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'home_screen.dart';
 import 'scouting_screen.dart';
 class NavigationBarBottom extends StatefulWidget {
   const NavigationBarBottom({super.key});
@@ -37,7 +38,7 @@ class _NavigationBarBottomState extends State<NavigationBarBottom> {
         ],
       ),
       body: <Widget>[
-
+        Home(),
         MyStaticGrid(),
       ][currentPageIndex],
     );
